@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block head %}
+{% endblock %}
+{% block content%}
+<div class="most-popular">
+    <div class="most-popular-box">
+        <div class="most-popular-items">
+            {% for item in items %}
+            <div class="most-popular-item">
+                <div class="most-popular-image">
+                    <img src="{{ item.image_url | default(url_for('static', filename='burger.png')) }}">
+                </div>
+                <div class="most-popular-body">
+                    <h4>{{ item.name }}</h4>
+                    <div class="price">
+                        <label class="sale">£{{ item.price }}</label>
+                        <label>£{{ item.price }}</label>
+                    </div>
+                    <form action="{{ url_for('add_to_cart', item_id=item.id) }}" method="POST">
+                        {{ form.csrf_token }}
+                        <button type="submit" class="add-to-cart-button">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="overlay3" id="overlay3"></div>
+    <div class="popup-form3" id="popupForm3" style="display: none;">
+      <a class="closeBtn" id="closeForm" tabindex="4">
+        <img src="{{ url_for('static', filename='cross.png') }}">
+      </a>
+      <h1>Your Orders</h1>
+      <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th class="cell-side">Total</th>
+                    <th>Status</th>
+                </tr>
+                {% if orders|length == 0 %}
+                    <tr  class="empty-cart-message1">
+                        <td colspan="3" class="empty-cart-message">
+                            <p class="empty-cart-message3">Nothing added to the cart. Your cart is empty.</p>
+                        </td>
+                    </tr>
+                {% endif %}
+            </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td class="first-id">{{ order.id }}</td>
+                        <td>{{ order.total_price }}</td>
+                        <td>£{{ order.status }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+      </div>
+
+    </div>
+
+<div class="footer">
+    <div class="footer-box">
+        <div class="footer-i f1">
+            <h4>Contact</h4>
+            <label>Street: Woodhouse lane</label><br>
+            <label>City: Leeds</label><br>
+            <label>PostCode: LS6 2PG</label><br>
+            <label>Phone Number: 8437879389</label><br>
+        </div>
+        <div class="footer-i f2">
+            <h4>Visit Us</h4>
+            <label>Getting Here</label><br>
+            <label>Our Supporters</label><br>
+            <label>Staff Directory</label><br>
+            <label>Current Season</label><br>
+        </div>
+        <div class="footer-i f3">
+            <h4>Contact</h4>
+            <label>skjdh jksahdjhsd</label><br>
+            <label>jsdhshjd jaskdjs</label><br>
+            <label>jlhsdjkdn dsdns</label><br>
+            <label>jhrjhjndfjasn asnd</label><br>
+        </div>
+        <div class="footer-i f4">
+            <h4>Contact</h4>
+            <label>skjdh jksahdjhsd kshdkjfdk dkfjk djfjhksdj kjdk sdkjaskdj kfjs
+            jsdkjsnfksdnfkjnj sjdnfl sdnjfn sdlfkdnfklnd fknsd kjsdk jskd jkj ksd
+            ksajdlkhsdklj ksjdk ksjd ksjdkjlakjsd </label>
+            <input type="text" placeholder="Email Address">   
+            <button>></button>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='javaScript/script.js') }}"></script>
+{% endblock %}

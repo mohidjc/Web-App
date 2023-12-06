@@ -1,0 +1,282 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Home</title>
+{% endblock %}
+{% block content%}
+<div class="content">
+    <div class="content-box">
+        <h2>Get up to 75% <br> off new Products</h2>
+        <label>The biggest sale of the year is at <span>Shoes world</span></label><br>
+        <a href="{{ url_for('items') }}">Shop Now  <img src="{{ url_for('static', filename='arrow.png') }}"></a> 
+    </div>
+</div>
+
+<div class="category" id="category">
+    <div class="category-title">
+        <h2>Blala shoes category</h2>
+    </div>
+    <div class="category-box">
+        <div class="box womens-box">
+            <div class="box-content b2">
+                <h3>Most popular styles</h3>
+                <label>Womens</label>
+                <a href="#">Go Here</a>
+            </div>
+            <img src="{{ url_for('static', filename='burger.png') }}">
+        </div>
+
+        <div class="box mens-box">
+            <div class="box-content">
+                <h3>Most popular styles</h3>
+                <label>Mens</label>
+                <a href="{{ url_for('items') }}">Go Here</a>
+            </div>
+            <img src="{{ url_for('static', filename='burger.png') }}">
+        </div>
+    </div>
+</div>
+
+<div class="most-rated">
+    <div class="most-rated-box">
+        <div class="most-rated-title">
+            <h2>MOST RATED</h2>
+        </div>
+
+        <div class="most-rated-items">
+            <div class="most-rated-item">
+                <div class="most-rated-image">
+                    <img src="{{ url_for('static', filename='burger.png') }}">
+                </div>
+                <div class="most-rated-body">
+                    <h4>shoe1</h4>
+                    <div class="price">
+                        <label class="sale">£81.99</label>
+                        <label >£41.99</label>
+                    </div>
+                </div>
+            </div>
+            <div class="most-rated-item">
+                <div class="most-rated-image">
+                    <img src="{{ url_for('static', filename='burger.png') }}">
+                </div>
+                <div class="most-rated-body">
+                    <h4>shoe2</h4>
+                    <div class="price">
+                        <label class="sale">£82.99</label>
+                        <label >£42.99</label>
+                    </div>
+                </div>
+            </div>
+            <div class="most-rated-item">
+                <div class="most-rated-image">
+                    <img src="{{ url_for('static', filename='burger.png') }}">
+                </div>
+                <div class="most-rated-body">
+                    <h4>shoe3</h4>
+                    <div class="price">
+                        <label class="sale">£83.99</label>
+                        <label >£43.99</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="most-popular">
+    <div class="most-popular-box">
+        <div class="most-popular-title">
+            <h2>MOST POPULAR</h2>
+        </div>
+
+        <div class="most-popular-items">
+            <div class="most-popular-item">
+                <div class="most-popular-image">
+                    <img src="{{ url_for('static', filename='burger.png') }}">
+                </div>
+                <div class="most-popular-body">
+                    <h4>shoe1</h4>
+                    <div class="price">
+                        <label class="sale">£81.99</label>
+                        <label >£41.99</label>
+                    </div>
+                </div>
+            </div>
+            <div class="most-popular-item">
+                <div class="most-popular-image">
+                    <img src="{{ url_for('static', filename='burger.png') }}">
+                </div>
+                <div class="most-popular-body">
+                    <h4>shoe2</h4>
+                    <div class="price">
+                        <label class="sale">£82.99</label>
+                        <label >£42.99</label>
+                    </div>
+                </div>
+            </div>
+            <div class="most-popular-item">
+                <div class="most-popular-image">
+                    <img src="{{ url_for('static', filename='burger.png') }}">
+                </div>
+                <div class="most-popular-body">
+                    <h4>shoe3</h4>
+                    <div class="price">
+                        <label class="sale">£83.99</label>
+                        <label >£43.99</label>
+                    </div>
+                </div>
+            </div>
+            <div class="most-popular-item">
+                <div class="most-popular-image">
+                    <img src="{{ url_for('static', filename='burger.png') }}">
+                </div>
+                <div class="most-popular-body">
+                    <h4>shoe1</h4>
+                    <div class="price">
+                        <label class="sale">£81.99</label>
+                        <label >£41.99</label>
+                    </div>
+                </div>
+            </div>
+            <div class="most-popular-item">
+                <div class="most-popular-image">
+                    <img src="{{ url_for('static', filename='burger.png') }}">
+                </div>
+                <div class="most-popular-body">
+                    <h4>shoe2</h4>
+                    <div class="price">
+                        <label class="sale">£82.99</label>
+                        <label >£42.99</label>
+                    </div>
+                </div>
+            </div>
+            <div class="most-popular-item">
+                <div class="most-popular-image">
+                    <img src="{{ url_for('static', filename='burger.png') }}">
+                </div>
+                <div class="most-popular-body">
+                    <h4>shoe3</h4>
+                    <div class="price">
+                        <label class="sale">£83.99</label>
+                        <label >£43.99</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="popular-item-btn">
+            <button>More</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="our-services">
+    <div class="our-services-box">
+        <div class="our-services-item">
+            <div class="our-services-icon">
+                <i class='bx bx-user'></i>
+            </div>
+            <div class="our-services-body">
+                <h3>24/7 Customer Review</h3>
+                <label>Hear what our customers have to say about their experiences</label>
+            </div>
+        </div>
+
+        <div class="our-services-item">
+            <div class="our-services-icon">
+                <i class='bx bx-pound' ></i>
+            </div>
+            <div class="our-services-body">
+                <h3>Return Guarentee</h3>
+                <label>Shop confidently with our hassle-free Return Guarantee</label>
+            </div>
+        </div>
+
+        <div class="our-services-item">
+            <div class="our-services-icon">
+                <i class='bx bx-credit-card'></i>
+            </div>
+            <div class="our-services-body">
+                <h3>Secure Payment</h3>
+                <label>Shop with confidence through our secure payment system</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="overlay3" id="overlay3"></div>
+    <div class="popup-form3" id="popupForm3" style="display: none;">
+      <a class="closeBtn" id="closeForm1" onclick="closeThis()" tabindex="4">
+        <img src="{{ url_for('static', filename='cross.png') }}">
+      </a>
+      <h1>Your Orders</h1>
+      <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th class="cell-side">Total</th>
+                    <th>Status</th>
+                </tr>
+                {% if orders|length == 0 %}
+                    <tr  class="empty-cart-message1">
+                        <td colspan="3" class="empty-cart-message">
+                            <p class="empty-cart-message3">Nothing added to the cart. Your cart is empty.</p>
+                        </td>
+                    </tr>
+                {% endif %}
+            </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td class="first-id">{{ order.id }}</td>
+                        <td>{{ order.total_price }}</td>
+                        <td>£{{ order.status }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='javaScript/script1.js') }}"></script>
+
+<div class="footer">
+    <div class="footer-box">
+        <div class="footer-i f1">
+            <h4>Contact</h4>
+            <label>Street: Woodhouse lane</label><br>
+            <label>City: Leeds</label><br>
+            <label>PostCode: LS6 2PG</label><br>
+            <label>Phone Number: 8437879389</label><br>
+        </div>
+        <div class="footer-i f2">
+            <h4>Visit Us</h4>
+            <label>Getting Here</label><br>
+            <label>Our Supporters</label><br>
+            <label>Staff Directory</label><br>
+            <label>Current Season</label><br>
+        </div>
+        <div class="footer-i f3">
+            <h4>Contact</h4>
+            <label>skjdh jksahdjhsd</label><br>
+            <label>jsdhshjd jaskdjs</label><br>
+            <label>jlhsdjkdn dsdns</label><br>
+            <label>jhrjhjndfjasn asnd</label><br>
+        </div>
+        <div class="footer-i f4">
+            <h4>Contact</h4>
+            <label>skjdh jksahdjhsd kshdkjfdk dkfjk djfjhksdj kjdk sdkjaskdj kfjs
+            jsdkjsnfksdnfkjnj sjdnfl sdnjfn sdlfkdnfklnd fknsd kjsdk jskd jkj ksd
+            ksajdlkhsdklj ksjdk ksjd ksjdkjlakjsd </label>
+            <input type="text" placeholder="Email Address">   
+            <button>></button>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='javaScript/script1.js') }}"></script>
+{% endblock %}
+

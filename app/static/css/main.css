@@ -1,0 +1,315 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.bg-light{
+    background-color: rgb(122, 73, 73) !important;
+}
+
+.nav-item{
+    color: rgb(250, 250, 250) !important;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.nav-item::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color: white;
+    display: block;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+    transition: width 0.2s linear; 
+}
+
+.nav-item.active::after {
+    width: 100%;
+    
+}
+
+.navbar-toggler{
+    background-color: white !important;
+}
+
+.table-container{
+    background: rgb(215, 171, 171);
+}
+
+.container
+{
+    background: rgb(215, 171, 171);
+    box-shadow: 2px 5px 10px black;
+    width: 70%;
+    padding: 40px;
+}
+
+.mainBit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.mainTop{
+    background: rgb(215, 171, 171);
+    box-shadow: 2px 5px 10px black;
+    padding-bottom:20px;
+}
+
+.progress{
+    width: 230px;
+    height: 230px;
+    background: none;
+    position: relative;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.outer{
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15);
+    padding: 20px;
+    background: conic-gradient(rgb(122, 73, 73) 60deg, white 0deg);
+}
+
+.inner{
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+                0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+                0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(215, 171, 171);
+}
+
+.number1{
+    font-size: 30px;
+    color: rgb(92, 50, 50);
+}
+
+circle{
+    stroke: cornflowerblue;
+}
+
+.secondHalf{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.btn-primary{
+    background-color: rgb(122, 73, 73);
+    border: none !important; 
+    transition: background-color 0.3s;
+}
+
+.closeBtn{
+    margin-top: 5px;
+    background-color: rgb(161, 127, 127);
+    border: 1.6px solid rgb(161, 127, 127) !important; 
+    transition: background-color 0.3s;
+    color: white;
+    width: 100%;
+}
+
+.closeBtn:hover, .closeBtn:active{
+    background-color: rgb(126, 100, 100);
+    border: 1.6px solid rgb(122, 73, 73) !important; 
+}
+
+.btn-primary:hover, .btn-primary:active{
+    background-color: rgb(126, 100, 100);
+}
+
+.card{
+    margin:15px;
+    background: rgb(215, 171, 171);
+    box-shadow: 2px 5px 10px black;
+}
+
+.card-body {
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    height: 100%; 
+}
+
+.centre{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-outline-danger{
+    color:white !important;
+    border: 1.6px solid rgb(122, 73, 73) !important; 
+    background-color:rgb(122, 73, 73) ;
+    transition: background-color 0.3s;
+}
+
+.btn-outline-danger:hover, .btn-outline-danger:active{
+    border: 1.6px solid rgb(122, 73, 73) !important; 
+    background-color:rgb(126, 100, 100) ;
+}
+
+.mainHeading{
+    color: rgb(92, 50, 50) ;
+    font-weight: bold;
+}
+
+.mainHeading2{
+    color: rgb(92, 50, 50) ;
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.heading2{
+    display: flex;
+    justify-content: center;
+}
+
+.text-center{
+    color: rgb(92, 50, 50);
+    font-weight: bold;
+}
+
+.full-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.container1{
+    max-width: 1440px;
+    width: 90%;
+    background: white;
+    box-shadow: 2px 5px 10px black;
+}
+
+.thisTable{
+    width:100%;
+    border-collapse: collapse;
+}
+
+.thisTable thead{
+    background: rgb(122, 73, 73);
+}
+
+.thisTable thead tr th{
+  font-size: 0.9rem;
+  color: white;
+  padding: 0.8rem;
+  letter-spacing: 0.2rem;
+  vertical-align: top;
+  text-align: center;
+  padding: 0.8rem;
+}
+
+.thisTable tbody tr td{
+    font-size: 1rem;
+    color: rgb(68, 34, 34);
+    letter-spacing: 0.2rem;
+    padding: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.thisTable tr:nth-child(even){
+    background: rgba(122, 73, 73, 0.37);
+    cursor: pointer;
+}
+
+.marginDiv{
+    padding:20px;
+}
+
+.topDiv{
+    display: flex;
+}
+
+.centreDiv{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding:20px
+}
+
+.centreDiv > div {
+    width: 80%;
+}
+
+.card-title{
+    color: rgb(92, 50, 50);
+    font-weight: bold;
+}
+
+.card-text{
+    color: rgb(92, 50, 50);
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgba(122, 73, 73, 0.636);
+    color: #000; 
+}
+
+.form-control::placeholder {
+    color: rgb(255, 255, 255);
+}
+
+.form-label {
+    font-weight: bold;
+    color: rgb(92, 50, 50);
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
+
+.popup-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-info{
+    background-color: rgb(122, 73, 73);
+    border: none;
+}
+
+.alertMessage{
+    color: red;
+}

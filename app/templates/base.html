@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main1.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <div class="nav-container">
+        <div class="logo">
+          <img src="{{ url_for('static', filename='burger.png') }}" > 
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                  <a class="nav-item nav-link {% if request.path == url_for('index') %}active{% endif %}" href="{{ url_for('index') }}" tabindex="1">Home</a>
+                  <a class="nav-item nav-link {% if request.path == url_for('items') %}active{% endif %}" href="{{ url_for('items') }}" tabindex="2">Items</a>
+                  <a class="nav-item nav-link {% if request.path == url_for('items') %}active{% endif %}" href="{{ url_for('items') }}" tabindex="3">Items</a>
+              </div>
+          </div>
+        </nav>
+        <div class="outer-icon">
+          <div class="nav-icon">
+            <button class="icon-button"><i class="bx bx-search"></i></button>
+            <button class="icon-button" onclick="toggleDropdown('user-dropdown')"><i class="bx bx-user"></i></button>
+            <form action="{{ url_for('cart') }}">
+              <button type="submit" class="icon-button"><i class="bx bx-cart"></i></button>
+            </form>
+          </div>
+
+
+
+          <!-- <div id="user-dropdown" class="dropdown-content">
+            {% if current_user.is_authenticated %}
+              <p>Welcome, {{ current_user.firstname }}!</p>
+              <form action="{{ url_for('logout') }}" method="GET">
+                  <button type="submit">Logout</button>
+              </form>
+            {% else %}
+                <h4>Welcome!</h4>
+                <a href="#">Profile</a>
+                <a href="#">Settings</a>
+                <button onclick="login()">Log In</button>
+            {% endif %}
+          </div> -->
+
+          <div class="sub-menu-wrap" id="user-dropdown">
+            {% if current_user.is_authenticated %}
+              <div class="sub-menu">
+                <div class="user-info">
+                  <img src="{{ url_for('static', filename='user1.png') }}">
+                    <h2>{{ current_user.firstname }}</h2>
+                </div>
+                <hr>
+                  <a href="#" class="sub-menu-link " onclick="orders()">
+                    <img src="{{ url_for('static', filename='settings.png') }}">
+                    <p>Your Orders</p>
+                    <span>></span>
+                  </a>
+                  <a href="#" class="sub-menu-link">
+                    <img src="{{ url_for('static', filename='profile.png') }}">
+                    <p>Edit Profile</p>
+                    <span>></span>
+                  </a>
+                  <a href="#" class="sub-menu-link">
+                    <img src="{{ url_for('static', filename='question.png') }}">
+                    <p>Help & Support</p>
+                    <span>></span>
+                  </a>
+                  <a class="sub-menu-link {% if request.path == url_for('logout') %}active{% endif %}" href="{{ url_for('logout') }}" tabindex="2">
+                    <img src="{{ url_for('static', filename='logout.png') }}">
+                    <p>Logout</p>
+                    <span>></span>
+                  </a>
+              </div>
+            {% else %}
+              <div class="sub-menu">
+                <a class="sub-menu-link" onclick="login()" tabindex="2">
+                  <img src="{{ url_for('static', filename='logout.png') }}">
+                  <p>Login</p>
+                  <span>></span>
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+    </div>
+
+
+    <div class="overlay" id="overlay"></div>
+    <div class="popup-form" id="popupForm" style="display: none;">
+      <a class="closeBtn" id="closeForm" tabindex="4">
+        <img src="{{ url_for('static', filename='cross.png') }}">
+      </a>
+      <h1>Login</h1>
+        <form action="{{ url_for('login') }}" method="POST">
+          {{ form.hidden_tag() }}
+          <div class="form-group">
+              {{ form.email(class="form-control", id="LoginEmail", placeholder="Enter Email" , tabindex="1") }}
+          </div>
+          <div class="form-group">
+              {{ form.password(class="form-control", id="LoginPassword", placeholder="Enter password" , tabindex="2")}}
+          </div>
+          <button type="submit" class="submitBtn" tabindex="3">Login</button>
+          <div class="member">
+            Not a member? <a href="#" onclick="SignUp()">Register Here</a>
+          </div>
+        </form>
+    </div>
+
+    <div class="overlay1" id="overlay1"></div>
+    <div class="popup-form1" id="popupForm1" style="display: none;">
+        <a class="closeBtn" id="closeForm1" tabindex="4">
+          <img src="{{ url_for('static', filename='cross.png') }}">
+        </a>
+        <h1>Sign Up</h1>
+        <form method="post" action="{{ url_for('signup') }}">
+          {{ form1.hidden_tag() }}
+          <div class="form-group">
+              {{ form1.firstname(class="form-control", id="firstname", placeholder="Firstname" , tabindex="1") }}
+          </div>
+          <div class="form-group">
+              {{ form1.surname(class="form-control", id="surname", placeholder="Surname" , tabindex="2")}}
+          </div>
+          <div class="form-group">
+            {{ form1.email(class="form-control", id="email", placeholder="Email" , tabindex="3")}}
+          </div>
+          <div class="form-group">
+            {{ form1.telephone(class="form-control", id="telephone", placeholder="Telephone" , tabindex="4")}}
+          </div>
+          <div class="form-group">
+            {{ form1.password(class="form-control", id="password", placeholder="Password" , tabindex="5")}}
+          </div>
+          <div class="terms">
+            <input type="checkbox" id="checkbox">
+            <label for="checkbox">I agree to these <a href="#">Terms & Conditions</a></label>
+          </div>
+          <button onclick="SignUp2()" type="submit" class="submitBtn" tabindex="3" >Submit</button>
+          <div class="member">
+            Already a member? <a href="#" onclick="login()">Login Here</a>
+          </div>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='javaScript/script1.js') }}"></script>
+    {% block content %}{% endblock %}
+</body>
+</html>
